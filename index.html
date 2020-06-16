@@ -6,44 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>画板</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
-    <canvas id="canvas" width="100" height="100"></canvas>
-    <script>
-        let canvas = document.getElementById("canvas");
-        canvas.width = document.documentElement.clientWidth
-        canvas.height = document.documentElement.clientHeight
-        let ctx = canvas.getContext("2d");
+    <div id="canvasWrapper">
+        <canvas id="canvas"></canvas>
+        <div class="tools">
+            <div class="colors">
+                <span style="background-color: black;" class="black active" data-color="black"></span>
+                <span style="background-color: red;" class="red" data-color="red"></span>
+                <span style="background-color: orange;" class="orange" data-color="orange"></span>
+                <span style="background-color: yellow;" class="yellow" data-color="yellow"></span>
+                <span style="background-color: green;" class="green" data-color="green"></span>
+                <span style="background-color: blue;" class="blue" data-color="blue"></span>
+                <span style="background-color: indigo;" class="indigo" data-color="indigo"></span>
+                <span style="background-color: violet;" class="violet" data-color="violet"></span>
+            </div>
+            <span class="pen active">
+                <svg class="icon">
+                    <use xlink:href="#icon-pen"></use>
+                </svg>
+            </span>
+            <span class="eraser">
+                <svg class="icon">
+                    <use xlink:href="#icon-eraser"></use>
+                </svg>
+            </span>
+            <span class="empty">
+                <svg class="icon">
+                    <use xlink:href="#icon-empty"></use>
+                </svg>
+            </span>
+            <span class="download">
+                <svg class="icon">
+                    <use xlink:href="#icon-download"></use>
+                </svg>
+            </span>
+        </div>
+    </div>
 
-        let painting = false
+    <script src="//at.alicdn.com/t/font_1888122_pllwffqa537.js"></script>
+    <script src="index.js"></script>
 
-
-        ctx.fillStyle = "black";
-        ctx.strokeStyle = 'none'
-
-        canvas.onmousedown = () => {
-            painting = true
-        }
-
-        canvas.onmousemove = (e) => {
-            if (painting === true) {
-                ctx.beginPath();
-                ctx.arc(e.clientX, e.clientY, 10, 0, 2 * Math.PI);
-                ctx.stroke();
-                ctx.fill();
-            } else {
-                console.log('什么都不做')
-            }
-        }
-
-        canvas.onmouseup = () => {
-            painting = false
-        }
-
-
-    </script>
 </body>
 
 </html>

@@ -4,6 +4,53 @@
   box-sizing: border-box;
 }
 
+
+.icon {
+  width: 24px;
+  height: 24px;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+
 #canvas {
-  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
+.tools {
+  position: absolute;
+  left: 0;
+  top: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tools>span {
+  margin: 8px 16px;
+}
+
+.tools .colors {
+  display: flex;
+  flex-direction: column;
+}
+
+.tools .colors span {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin: 8px 16px;
+}
+
+span {
+  cursor: pointer;
+}
+
+span:hover {
+  transform: scale(1.5)
+}
+
+.active {
+  transform: scale(1.5);
 }
